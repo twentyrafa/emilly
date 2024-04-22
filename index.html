@@ -39,18 +39,25 @@
         h1 {
             color: black; /* Alterando a cor do texto para preto */
         }
+        #gatito-img {
+            display: none; /* Oculta a imagem inicialmente */
+            max-width: 300px; /* Define uma largura máxima para a imagem */
+            margin-top: 20px; /* Adiciona margem superior para separar da pergunta */
+        }
     </style>
 </head>
 <body>
     <h1>¿Aceptas salir conmigo, Bolzan?</h1>
     <div id="buttons-container">
-        <button id="yes-button" class="button" onclick="marcarGatito()">¡Sí, gatito!</button>
+        <button id="yes-button" class="button" onclick="mostrarGatito()">¡Sí, gatito!</button>
         <button id="no-button" class="button" onclick="moverBoton()">No, lo siento</button>
     </div>
-
+    <img id="gatito-img" src="https://github.com/twentyrafa/bolzan/blob/9dbb55a9630e602059eaaf9ae2d7672cbaf61a41/gatito2.jpeg" alt="Gatito">
+    
     <script>
-        function marcarGatito() {
-            alert("Entonces ¿soy un gatito?");
+        function mostrarGatito() {
+            var img = document.getElementById('gatito-img');
+            img.style.display = 'block'; // Exibe a imagem
         }
 
         function moverBoton() {
