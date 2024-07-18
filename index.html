@@ -22,6 +22,7 @@
             flex-direction: column;
             align-items: center;
             margin-top: 20px;
+            position: relative;
         }
         .button {
             padding: 15px 30px; /* Aumentando o tamanho dos botões */
@@ -29,6 +30,7 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 18px; /* Ajustando o tamanho da fonte */
+            position: absolute; /* Permite movimentação */
         }
         #yes-button {
             background-color: #4CAF50;
@@ -39,34 +41,32 @@
         h1 {
             color: black; /* Alterando a cor do texto para preto */
         }
-        #gatito-img {
-            display: none; /* Oculta a imagem inicialmente */
-            max-width: 300px; /* Define uma largura máxima para a imagem */
-            margin-top: 20px; /* Adiciona margem superior para separar da pergunta */
+        #image {
+            display: none; /* Inicialmente escondida */
+            margin-top: 20px;
+            width: 300px; /* Ajuste o tamanho da imagem conforme necessário */
+            border-radius: 10px; /* Adiciona bordas arredondadas */
         }
     </style>
 </head>
 <body>
     <h1>Acceptes-tu de regarder les étoiles avec moi, Emilly?</h1>
     <div id="buttons-container">
-        <button id="yes-button" class="button" onclick="mostrarGatito()">Oui!!</button>
+        <button id="yes-button" class="button" onclick="mostrarImagem()">Oui!!</button>
         <button id="no-button" class="button" onclick="moverBoton()">Non!!</button>
     </div>
-    <img id="gatito-img" src="https://i.imgur.com/VkK3ROZ.jpg" alt="Gatito">
+    <img id="image" src="https://i.imgur.com/VkK3ROZ.jpeg" alt="Imagem de estrelas">
     
     <script>
-        function mostrarGatito() {
-            var img = document.getElementById('gatito-img');
-            img.style.display = 'block'; // Exibe a imagem
+        function mostrarImagem() {
+            document.getElementById('image').style.display = 'block'; // Exibe a imagem
         }
-
+        
         function moverBoton() {
             var button = document.getElementById('no-button');
-            button.style.position = 'absolute';
-            var left = Math.random() * (window.innerWidth - button.offsetWidth);
-            var top = Math.random() * (window.innerHeight - button.offsetHeight);
-            button.style.left = left + 'px';
-            button.style.top = top + 'px';
+            button.style.top = Math.random() * (window.innerHeight - button.offsetHeight) + 'px'; // Define uma nova posição vertical
+            button.style.left = Math.random() * (window.innerWidth - button.offsetWidth) + 'px'; // Define uma nova posição horizontal
+            button.style.pointerEvents = 'none'; // Torna o botão não clicável
         }
     </script>
 </body>
